@@ -4,30 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="STYLESS.css">
-<title>empresarial</title>
+<title>personal</title>
+
 </head>
-<body class="cuerpo2">
-<div class="container2">
-    <h2>Directorio empresarial</h2>
-    <form id="companyForm">
-        <label for="companyName">Nombre de la empresa:</label><br>
-        <input type="text" id="companyName" name="companyName" required><br>
-        <label for="businessType">Giro:</label><br>
-        <input type="text" id="businessType" name="businessType" required><br>
-        <label for="companyAddress">Dirección postal:</label><br>
-        <input type="text" id="companyAddress" name="companyAddress" required><br>
-        <label for="legalRepresentative">Representante legal:</label><br>
-        <input type="text" id="legalRepresentative" name="legalRepresentative" required><br>
-        <label for="companyPhone">Teléfono:</label><br>
-        <input type="tel" id="companyPhone" name="companyPhone" required><br>
-        <label for="companyEmail">Correo electrónico:</label><br>
-        <input type="email" id="companyEmail" name="companyEmail" required><br>
-        <button type="submit">Agregar Tarjeta</button>
+<body class="cuerpo1">
+<div class="container1">
+    <h2>Directorio personal</h2>
+    <form id="myForm">
+        <label for="contactName">Nombre del contacto:</label><br>
+        <input type="text" id="contactName" name="contactName" required><br>
+        <label for="address">Dirección postal:</label><br>
+        <input type="text" id="address" name="address" required><br>
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="phoneHome">Teléfono particular:</label><br>
+        <input type="tel" id="phoneHome" name="phoneHome" required><br>
+        <label for="phoneCell">Teléfono celular:</label><br>
+        <input type="tel" id="phoneCell" name="phoneCell" required><br>
+        <label for="relationship">Parentesco:</label><br>
+        <input type="text" id="relationship" name="relationship" required><br>
+        <button type="submit" class="boton">Enviar</button>
     </form>
 </div>
 
-<div id="cardContainer1"></div>
+<div id="cardContainer"></div>
 
-<script src="empresarial.js"></script>
+<script src="personal.js"></script>
 </body>
 </html>
