@@ -1,8 +1,8 @@
 var nombreDeLosProductos = JSON.parse(localStorage.getItem("Productos"));
 var direccionDeLasImagenes = JSON.parse(localStorage.getItem("Imagenes"));
 var precioDeLosProducots = JSON.parse(localStorage.getItem("Precio"));
-var cantidadDeProductos = [0,0,0,0,0,0,0,0,0,00,0,0,0,0,0,0,0,0];
-var validador = [0,0,0,0,0,0,0,0,0,00,0,0,0,0,0,0,0,0];
+var cantidadDeProductos = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var validador = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 var cuentaid=0;
 var totalAPagar=0;

@@ -29,7 +29,7 @@ function Registro(){ //ya funciona
     else if(Usuarios !== null && Registro2(nombre, iniciales, horario, puesto, login, contraseña) === 0){//hay mas de 1 ususario
         var aux=0; //no existe el usuario
         for(var i=0; i<Usuarios.length ;i++){ //busca si ya existe al usuario
-            if(Usuarios[i][3] === login ){
+            if(Usuarios[i][4] === login ){
                 aux=i; //encontro al usuario
             }
         }
