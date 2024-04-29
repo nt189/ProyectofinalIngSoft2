@@ -209,10 +209,14 @@ main{
 
 /*Directorio */
 #techo{
+    font-family: "Ubuntu", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
     color: #f2f2f2;
     height: 150px; 
     border: 5px solid #000; 
@@ -222,14 +226,18 @@ main{
     margin-top: 20px;
     text-align: center;
     border-radius: 20px;
-    background-color: rgba(12, 10, 164, 0.65);
+    background-color: rgb(37, 44, 143);
 }
 #techo2{ 
+    font-family: "Ubuntu", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
-    color: rgb(37, 44, 143);
+    color:white;
     height: 150px; 
     width: 350px;
     border: 5px solid #000; 
@@ -237,7 +245,7 @@ main{
     text-align: center;
     margin-top: 20px;
     border-radius: 20px;
-    background-color: white;
+    background-color: rgb(37, 44, 143) ;
 }
 /*Directorio personal*/
 .cuerpo1 {
@@ -327,32 +335,16 @@ input{
 }
 
 .Directorio1 h2{
-    font-family: "Teko", sans-serif;
+    font-family: "Ubuntu", sans-serif;
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
-    font-size: 55px;
+    font-size: 45px;
     display: inline-block;
-    color: #000;
+    color: rgba(12, 10, 164, 0.65);
     background: #fff;
-    mix-blend-mode: multiply;
-    position: relative;
 
-}
-.Directorio1 h2::before{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgb(13, 0, 255), rgb(255, 255, 255));
-    mix-blend-mode:screen;
-    position: absolute;
-    top: 0;
-    left: 0;
-    
+
 }
 
 
-
-
-/* --------------------------------------- DIRECTORIO ------------------------------------

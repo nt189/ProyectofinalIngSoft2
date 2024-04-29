@@ -58,7 +58,7 @@ document.getElementById("companyForm").addEventListener("submit", function(event
                      "<p><strong>Teléfono:</strong> " + companyPhone + "</p>" +
                      "<p><strong>Correo electrónico:</strong> " + companyEmail + "</p>";
     card.appendChild(deleteBtn);
-    document.getElementById("cardContainer1").appendChild(card);
+    document.getElementById("cardContainer").appendChild(card);
 
     document.getElementById("companyName").value = "";
     document.getElementById("businessType").value = "";
