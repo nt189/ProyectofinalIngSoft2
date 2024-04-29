@@ -1,5 +1,5 @@
 var id;
-
+                                       
 function Registro2(a,b,c,d,e,f){//valida que todos los campos eten llenos
     if(a === '' || b === '' || c === '' || d === '' || e === '' || f === ''){
         alert("Por favor rellene correctamente todos los campos");
@@ -19,21 +19,23 @@ function Registro(){ //ya funciona
     
     let Usuarios = JSON.parse(localStorage.getItem('Usuarios'));
 
-    alert(nombre + iniciales + horario + puesto + login + contraseña);
+    alert(Usuarios);
     
     if(Usuarios === null && Registro2(nombre, iniciales, horario, puesto, login, contraseña) === 0){ //no hay usuarios
         var Usuariosaux = [1];
         Usuariosaux[0]=[nombre,iniciales,horario,puesto,login,contraseña];
         localStorage.setItem('Usuarios', JSON.stringify(Usuariosaux));
+        alert('Se a registrado a: ' + Usuarios[i][4]);
     }
     else if(Usuarios !== null && Registro2(nombre, iniciales, horario, puesto, login, contraseña) === 0){//hay mas de 1 ususario
-        var aux=0; //no existe el usuario
+        var aux; //no existe el usuario
+        alert(Usuarios[0][4] + ' ' + login)
         for(var i=0; i<Usuarios.length ;i++){ //busca si ya existe al usuario
             if(Usuarios[i][4] === login ){
-                aux=i; //encontro al usuario
+                aux='Existe'; //encontro al usuario
             }
         }
-        if(aux === 0){ //el usuario no existe y lo va a crear
+        if(aux !== 'Existe'){ //el usuario no existe y lo va a crear
             Usuarios.push([nombre,iniciales,horario,puesto,login, contraseña]);
             localStorage.setItem('Usuarios', JSON.stringify(Usuarios));
             alert('Se a registrado a: ' + Usuarios[i][4]);
@@ -65,7 +67,7 @@ function Logueo(){
         if(aux === 1 && contraseña === Usuarios[id][5]){
             // alert("Inicio de sessión");
             localStorage.setItem('id',id);
-            window.location.href = 'HTML/jugar.html';
+            window.location.href = 'directorio.html';
         }
         else{
             alert("Usuario inexistente");
