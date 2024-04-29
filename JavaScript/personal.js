@@ -73,9 +73,9 @@ function saveCardsToLocalStorage(cards) {
       cardElement.classList.add("card");
   
       const deleteBtn = document.createElement("span");
-      deleteBtn.classList.add("delete-btn");
-      deleteBtn.innerText = "Eliminar";
-      deleteBtn.addEventListener("click", () => {
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.innerText = "Eliminar";
+        deleteBtn.addEventListener("click", () => {
         cards.splice(index, 1); // Eliminar la tarjeta del array
         saveCardsToLocalStorage(cards); // Guardar los cambios en el localStorage
         renderCards(cards); // Renderizar las tarjetas actualizadas

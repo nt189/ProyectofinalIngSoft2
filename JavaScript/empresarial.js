@@ -35,6 +35,7 @@
 //     });
 // });
 
+
 document.getElementById("companyForm").addEventListener("submit", function(event) {
     event.preventDefault();
     var companyName = document.getElementById("companyName").value;
@@ -65,23 +66,6 @@ document.getElementById("companyForm").addEventListener("submit", function(event
     document.getElementById("legalRepresentative").value = "";
     document.getElementById("companyPhone").value = "";
     document.getElementById("companyEmail").value = "";
-
-    let Usuario = JSON.parse(localStorage.getItem('Usuarios'));
-    const id = localStorage.getItem('id');
-
-
-    let cardsemp = JSON.parse(localStorage.getItem('cardsemp'));
-    // alert (JSON.stringify(card))
-    if(cardsemp === null){
-        let aux = [1];
-
-        aux[aux[0]] = card;
-        aux[0] = aux[0] + 1;
-
-        localStorage.setItem('cardsemp', JSON.stringify(aux));
-        alert('Contacto Empresarial Ingresado correctamente');
-    }
-
 
     deleteBtn.addEventListener("click", function() {
         card.remove();
