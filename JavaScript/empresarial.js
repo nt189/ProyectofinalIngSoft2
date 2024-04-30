@@ -126,3 +126,6 @@ document.getElementById("companyForm").addEventListener("submit", function(event
     document.getElementById("companyPhone").value = "";
     document.getElementById("companyEmail").value = "";
 });
+
+
+hola
