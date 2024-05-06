@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda Empresarial</title>
+<link rel="stylesheet" href="Css/agendaP.css">
+</head>
+<body>
+  <h1>Agenda Empresarial</h1>
+  <div id="form-container">
+    <form id="cita-form">
+      <label for="nombre">Representante de la empresa:</label>
+      <input type="text" id="nombre" required><br>
+      
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required><br>
+      
+      <label for="hora-inicio">Hora de inicio:</label>
+      <input type="time" id="hora-inicio" required><br>
+      
+      <label for="hora-fin">Hora de finalización:</label>
+      <input type="time" id="hora-fin" required><br>
+      
+      <label for="lugar">Lugar:</label>
+      <input type="text" id="lugar" required><br>
+      
+      <label for="asunto">Asunto:</label>
+      <textarea id="asunto" required></textarea><br>
+      
+      <button type="submit">Guardar Cita</button>
+    </form>
+  </div>
+
+  <div id="citas-container">
+    <h2>Citas Registradas</h2>
+    <ul id="citas-list"></ul>
+  </div>
+
+  <script src="JavaScript/agendaE.js"></script>
+</body>
+</html>
