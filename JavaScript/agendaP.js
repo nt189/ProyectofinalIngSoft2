@@ -1,9 +1,8 @@
+/**/
 document.addEventListener('DOMContentLoaded', function() {
-  // Obtener el nombre del contacto de la URL
   const params = new URLSearchParams(window.location.search);
   const nombreContacto = params.get('nombre');
 
-  // Establecer el valor del campo "Nombre" con el nombre del contacto
   document.getElementById('nombre').value = nombreContacto || '';
 
   const form = document.getElementById('cita-form');
@@ -51,25 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <span>Hora de finalización: ${cita.horaFin}</span><br>
         <span>Lugar: ${cita.lugar}</span><br>
         <span>Asunto: ${cita.asunto}</span><br>
-        <button class="eliminar-cita" data-index="${index}">Eliminar</button>
       `;
       citasList.appendChild(li);
     });
   }
 
-  citasList.addEventListener('click', function(event) {
-    if (event.target.classList.contains('eliminar-cita')) {
-      const index = event.target.getAttribute('data-index');
-      eliminarCita(index);
-      mostrarCitas();
-    }
-  });
-
-  function eliminarCita(index) {
-    let citas = JSON.parse(localStorage.getItem('citas')) || [];
-    citas.splice(index, 1);
-    localStorage.setItem('citas', JSON.stringify(citas));
-  }
+  
 
   mostrarCitas();
 });
