@@ -1,61 +1,90 @@
-/**/
-document.addEventListener('DOMContentLoaded', function() {
-  const params = new URLSearchParams(window.location.search);
-  const nombreContacto = params.get('nombre');
+// Guardar cards en localsotage
+function saveCardsToLocalStorage(cards) {
+    localStorage.setItem('cardss', JSON.stringify(cards));
+}
 
-  document.getElementById('nombre').value = nombreContacto || '';
+// Cargar cards en local
+function getCardsFromLocalStorage() {
+    const cards = JSON.parse(localStorage.getItem('cardss')) || [];
+    return cards;
+}
 
-  const form = document.getElementById('cita-form');
-  const citasList = document.getElementById('citas-list');
+// Funcion para renderizar cartas
+function renderCards(cards) {
+    const cardContainer = document.getElementById("cardContainer");
+    cardContainer.innerHTML = ''; 
 
-  form.addEventListener('submit', function(event) {
+    cards.forEach(card => {
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+
+        const deleteBtn = document.createElement("span");
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.innerText = "Eliminar";
+
+        deleteBtn.addEventListener("click", () => {
+            
+            const index = cards.indexOf(card);
+            if (index !== -1) {
+                cards.splice(index, 1);
+                saveCardsToLocalStorage(cards); 
+                renderCards(cards); 
+            }
+        });
+
+        cardElement.innerHTML = `
+            <h2>Información de contacto:</h2>
+            <p><strong>Nombre de la empresa:</strong> ${card.companyName}</p>
+            <p><strong>Giro:</strong> ${card.businessType}</p>
+            <p><strong>Dirección postal:</strong> ${card.companyAddress}</p>
+            <p><strong>Representante legal:</strong> ${card.legalRepresentative}</p>
+            <p><strong>Teléfono:</strong> ${card.companyPhone}</p>
+            <p><strong>Correo electrónico:</strong> ${card.companyEmail}</p>
+        `;
+        cardElement.appendChild(deleteBtn);
+        cardContainer.appendChild(cardElement);
+    });
+}
+
+
+window.onload = function() {
+    const cards = getCardsFromLocalStorage();
+    renderCards(cards);
+};
+
+
+document.getElementById("companyForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const nombre = document.getElementById('nombre').value;
-    const fecha = document.getElementById('fecha').value;
-    const horaInicio = document.getElementById('hora-inicio').value;
-    const horaFin = document.getElementById('hora-fin').value;
-    const lugar = document.getElementById('lugar').value;
-    const asunto = document.getElementById('asunto').value;
+    
+    var companyName = document.getElementById("companyName").value;
+    var businessType = document.getElementById("businessType").value;
+    var companyAddress = document.getElementById("companyAddress").value;
+    var legalRepresentative = document.getElementById("legalRepresentative").value;
+    var companyPhone = document.getElementById("companyPhone").value;
+    var companyEmail = document.getElementById("companyEmail").value;
 
-    const cita = {
-      nombre: nombre,
-      fecha: fecha,
-      horaInicio: horaInicio,
-      horaFin: horaFin,
-      lugar: lugar,
-      asunto: asunto
+    const card = {
+        companyName: companyName,
+        businessType: businessType,
+        companyAddress: companyAddress,
+        legalRepresentative: legalRepresentative,
+        companyPhone: companyPhone,
+        companyEmail: companyEmail
     };
+    
+    const cards = getCardsFromLocalStorage();
+    
+    cards.push(card);
+    
+    saveCardsToLocalStorage(cards);
+    
+    renderCards(cards);
 
-    guardarCita(cita);
-    mostrarCitas();
-    form.reset();
-  });
-
-  function guardarCita(cita) {
-    let citas = JSON.parse(localStorage.getItem('citas')) || [];
-    citas.push(cita);
-    localStorage.setItem('citas', JSON.stringify(citas));
-  }
-
-  function mostrarCitas() {
-    citasList.innerHTML = '';
-    const citas = JSON.parse(localStorage.getItem('citas')) || [];
-    citas.forEach(function(cita, index) {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <strong>${cita.nombre}</strong><br>
-        <span>Fecha: ${cita.fecha}</span><br>
-        <span>Hora de inicio: ${cita.horaInicio}</span><br>
-        <span>Hora de finalización: ${cita.horaFin}</span><br>
-        <span>Lugar: ${cita.lugar}</span><br>
-        <span>Asunto: ${cita.asunto}</span><br>
-      `;
-      citasList.appendChild(li);
-    });
-  }
-
-  
-
-  mostrarCitas();
+    document.getElementById("companyName").value = "";
+    document.getElementById("businessType").value = "";
+    document.getElementById("companyAddress").value = "";
+    document.getElementById("legalRepresentative").value = "";
+    document.getElementById("companyPhone").value = "";
+    document.getElementById("companyEmail").value = "";
 });

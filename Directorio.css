@@ -41,9 +41,12 @@ main{
 /* Estilo para el título del formulario */
 .container1 h2, .container2 h2 {
     text-align: center; /* Centrar el texto */
-    color: rgba(12, 10, 164, 0.65); /* Azul con transparencia */
-    font-family: 'Arial', sans-serif; /* Fuente Arial */
-    font-size: 26px; /* Tamaño de fuente */
+    color: black; /* Azul con transparencia */ 
+    font-size: 50px; /* Tamaño de fuente */
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal; 
 }
 
 /* Estilos para el contenido del formulario */
@@ -56,7 +59,7 @@ main{
 /* Estilos para las etiquetas */
 .container1 label, .container2 label {
     font-family: 'Arial', sans-serif; /* Fuente Arial */
-    color: rgba(12, 10, 164, 0.65); /* Azul con transparencia */
+    color:solid black; /* Azul con transparencia */
     font-size: 14px; /* Tamaño de fuente */
 }
 
