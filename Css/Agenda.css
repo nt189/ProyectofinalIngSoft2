@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+body{
+    background-image: url(/Imagenes/MainBackground.jpg);
+    background: linear-gradient(to bottom, rgb(37, 44, 143), white);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+main{
+    width: 100%;
+    padding: 20px; 
+    margin: auto;
+    margin-top: 100px;
+}
+.Titulo{
+    background-color: rgb(255, 255, 255);
+    width: 450px;
+    height: 75px;
+    text-align: center;
+    padding: auto;
+    margin: 0 auto ;
+    margin-top: 50px;   
+    border-radius: 30px 0% 30px 0%;
+    border: black 3px solid;
+    box-shadow: 6px 20px 10px black;
+}
+.Titulo h1{
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: 55px;
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    position: relative;
+}
+.Titulo h1::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), blue);
+    mix-blend-mode:screen;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.container{
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2.5px solid #000;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    color: rgba(12, 10, 164, 0.65);
+}
+.container h1{
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: 55px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+th, td {
+    width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+
+th {
+    color: #eeee;
+    background-color: rgba(12, 10, 164, 0.65);
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+tbody tr:hover {
+    background-color: #d9d9d9;
+}

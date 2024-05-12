@@ -25,6 +25,7 @@ function saveCardsToLocalStorage(cards) {
   function renderCards(cards) {
     const cardContainer = document.getElementById("cardContainer");
     cardContainer.innerHTML = ''; // Limpiar tarjetas anteriores
+    var cont = 0;
   
     cards.forEach((card, index) => {
       if(card.id == id){
@@ -44,8 +45,8 @@ function saveCardsToLocalStorage(cards) {
         editBtn.classList.add("edit-btn");
         editBtn.innerText = "Editar";
         editBtn.addEventListener("click", () => {
-          fillFormWithCardData(card); // Rellenar los campos del formulario con los datos de la tarjeta
-          editBtn.style.display = "none"; // Ocultar el botón "Editar"
+        fillFormWithCardData(card); // Rellenar los campos del formulario con los datos de la tarjeta
+        editBtn.style.display = "none"; // Ocultar el botón "Editar"
     
           const saveBtn = document.createElement("span");
           saveBtn.classList.add("save-btn");
@@ -68,15 +69,16 @@ function saveCardsToLocalStorage(cards) {
           cardElement.appendChild(saveBtn);
         });
         
+        cont=cont+1;
         cardElement.innerHTML = `
-          <h2>Información de contacto:</h2>
-          <p><strong>Nombre:</strong> ${card.name}</p>
+          <h2>Información de contacto:</h2> <!--card num: ${cont}-->
+          <p id=${'"'+'card'+cont+'"'}><strong>Nombre:</strong> ${card.name}</p>
           <p><strong>Dirección postal:</strong> ${card.address}</p>
           <p><strong>Correo electrónico:</strong> ${card.email}</p>
           <p><strong>Teléfono particular:</strong> ${card.phoneHome}</p>
           <p><strong>Teléfono celular:</strong> ${card.phoneCell}</p>
           <p><strong>Parentesco:</strong> ${card.relationship}</p>
-          <>
+          <a onclick="Agendar(${cont})" href="agendaP.html" id="agendar">  Agendar cita </a>
         `;
 
         cardElement.appendChild(deleteBtn);
@@ -135,3 +137,13 @@ function saveCardsToLocalStorage(cards) {
     document.getElementById("phoneCell").value = "";
     document.getElementById("relationship").value = "";
   });
+  
+  function Agendar(x){
+    let nom = document.getElementById('card'+x).textContent;
+    nom = nom.replace('Nombre: ', '');
+    
+    alert(nom);
+
+    sessionStorage.setItem('nombre', nom);
+  }
+  

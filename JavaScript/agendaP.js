@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const params = new URLSearchParams(window.location.search);
   const nombreContacto = params.get('nombre');
 
-  document.getElementById('nombre').value = nombreContacto || '';
+  // document.getElementById('nombre').value = nombreContacto || '';
 
   const form = document.getElementById('cita-form');
   const citasList = document.getElementById('citas-list');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-
-    const nombre = document.getElementById('nombre').value;
+    
+    const nombre = sessionStorage.getItem('nombre');
     const fecha = document.getElementById('fecha').value;
     const horaInicio = document.getElementById('hora-inicio').value;
     const horaFin = document.getElementById('hora-fin').value;
@@ -59,3 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   mostrarCitas();
 });
+
+window.onload = function(){
+  let nombre = sessionStorage.getItem('nombre');
+  document.getElementById("nombree").value = nombre;
+}
