@@ -1,3 +1,5 @@
+var id = localStorage.getItem("id");
+
 // Función para guardar las tarjetas en el localStorage
 function saveCardsToLocalStorage(cards) {
     localStorage.setItem('cards', JSON.stringify(cards));
@@ -25,59 +27,62 @@ function saveCardsToLocalStorage(cards) {
     cardContainer.innerHTML = ''; // Limpiar tarjetas anteriores
   
     cards.forEach((card, index) => {
-      const cardElement = document.createElement("div");
-      cardElement.classList.add("card");
-  
-      const deleteBtn = document.createElement("span");
-        deleteBtn.classList.add("delete-btn");
-        deleteBtn.innerText = "Eliminar";
-        deleteBtn.addEventListener("click", () => {
-        cards.splice(index, 1); // Eliminar la tarjeta del array
-        saveCardsToLocalStorage(cards); // Guardar los cambios en el localStorage
-        renderCards(cards); // Renderizar las tarjetas actualizadas
-      });
-  
-      const editBtn = document.createElement("span");
-      editBtn.classList.add("edit-btn");
-      editBtn.innerText = "Editar";
-      editBtn.addEventListener("click", () => {
-        fillFormWithCardData(card); // Rellenar los campos del formulario con los datos de la tarjeta
-        editBtn.style.display = "none"; // Ocultar el botón "Editar"
-  
-        const saveBtn = document.createElement("span");
-        saveBtn.classList.add("save-btn");
-        saveBtn.innerText = "Guardar";
-        saveBtn.addEventListener("click", () => {
-          // Actualizar los datos de la tarjeta en el array
-          card.name = document.getElementById("contactName").value;
-          card.address = document.getElementById("address").value;
-          card.email = document.getElementById("email").value;
-          card.phoneHome = document.getElementById("phoneHome").value;
-          card.phoneCell = document.getElementById("phoneCell").value;
-          card.relationship = document.getElementById("relationship").value;
-  
+      if(card.id == id){
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+    
+        const deleteBtn = document.createElement("span");
+          deleteBtn.classList.add("delete-btn");
+          deleteBtn.innerText = "Eliminar";
+          deleteBtn.addEventListener("click", () => {
+          cards.splice(index, 1); // Eliminar la tarjeta del array
           saveCardsToLocalStorage(cards); // Guardar los cambios en el localStorage
           renderCards(cards); // Renderizar las tarjetas actualizadas
-          saveBtn.remove(); // Eliminar el botón "Guardar"
-          editBtn.style.display = "inline"; // Mostrar el botón "Editar" nuevamente
         });
-  
-        cardElement.appendChild(saveBtn);
-      });
-  
-      cardElement.innerHTML = `
-        <h2>Información de contacto:</h2>
-        <p><strong>Nombre:</strong> ${card.name}</p>
-        <p><strong>Dirección postal:</strong> ${card.address}</p>
-        <p><strong>Correo electrónico:</strong> ${card.email}</p>
-        <p><strong>Teléfono particular:</strong> ${card.phoneHome}</p>
-        <p><strong>Teléfono celular:</strong> ${card.phoneCell}</p>
-        <p><strong>Parentesco:</strong> ${card.relationship}</p>
-      `;
-  
-      cardElement.appendChild(deleteBtn);
-      cardElement.appendChild(editBtn);
-      cardContainer.appendChild(cardElement);
+    
+        const editBtn = document.createElement("span");
+        editBtn.classList.add("edit-btn");
+        editBtn.innerText = "Editar";
+        editBtn.addEventListener("click", () => {
+          fillFormWithCardData(card); // Rellenar los campos del formulario con los datos de la tarjeta
+          editBtn.style.display = "none"; // Ocultar el botón "Editar"
+    
+          const saveBtn = document.createElement("span");
+          saveBtn.classList.add("save-btn");
+          saveBtn.innerText = "Guardar";
+          saveBtn.addEventListener("click", () => {
+            // Actualizar los datos de la tarjeta en el array
+            card.name = document.getElementById("contactName").value;
+            card.address = document.getElementById("address").value;
+            card.email = document.getElementById("email").value;
+            card.phoneHome = document.getElementById("phoneHome").value;
+            card.phoneCell = document.getElementById("phoneCell").value;
+            card.relationship = document.getElementById("relationship").value;
+    
+            saveCardsToLocalStorage(cards); // Guardar los cambios en el localStorage
+            renderCards(cards); // Renderizar las tarjetas actualizadas
+            saveBtn.remove(); // Eliminar el botón "Guardar"
+            editBtn.style.display = "inline"; // Mostrar el botón "Editar" nuevamente
+          });
+    
+          cardElement.appendChild(saveBtn);
+        });
+        
+        cardElement.innerHTML = `
+          <h2>Información de contacto:</h2>
+          <p><strong>Nombre:</strong> ${card.name}</p>
+          <p><strong>Dirección postal:</strong> ${card.address}</p>
+          <p><strong>Correo electrónico:</strong> ${card.email}</p>
+          <p><strong>Teléfono particular:</strong> ${card.phoneHome}</p>
+          <p><strong>Teléfono celular:</strong> ${card.phoneCell}</p>
+          <p><strong>Parentesco:</strong> ${card.relationship}</p>
+          <>
+        `;
+
+        cardElement.appendChild(deleteBtn);
+        cardElement.appendChild(editBtn);
+        cardContainer.appendChild(cardElement);
+      }  
     });
   }
   
@@ -98,8 +103,7 @@ function saveCardsToLocalStorage(cards) {
     var phoneHome = document.getElementById("phoneHome").value;
     var phoneCell = document.getElementById("phoneCell").value;
     var relationship = document.getElementById("relationship").value;
-    var id = localStorage.getItem("id");
-  
+    
     // Crear objeto con los datos de la tarjeta
     const card = {
       name: contactName,

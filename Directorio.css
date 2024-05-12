@@ -58,9 +58,10 @@ main{
 
 /* Estilos para las etiquetas */
 .container1 label, .container2 label {
-    font-family: 'Arial', sans-serif; /* Fuente Arial */
+ /* Fuente Arial */
     color:solid black; /* Azul con transparencia */
-    font-size: 14px; /* Tamaño de fuente */
+    font-size: 25px; /* Tamaño de fuente */
+    font-weight: bold;
 }
 
 /* Estilos para los campos de entrada */
@@ -77,16 +78,18 @@ main{
     background-color: rgba(12, 10, 164, 0.65); /* Azul con transparencia */
     color: #f2f2f2; /* Gris claro para el texto */
     padding: 10px 20px; /* Espaciado interno */
-    border: none;
+    border: 1px solid black;
     border-radius: 5px; /* Bordes redondeados */
     font-family: 'Arial', sans-serif; /* Fuente Arial */
     cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
     transition: background-color 0.3s; /* Efecto de transición */
+    font-weight: bold;
 }
 
 /* Cambio de color al pasar el cursor sobre el botón */
 .container1 .boton:hover, .container2 .boton:hover {
-    background-color: rgba(12, 10, 164, 0.85); /* Azul más oscuro al pasar el cursor */
+    background-color:white;
+    color: rgba(12, 10, 164, 0.65);  /* Azul más oscuro al pasar el cursor */
 }
 
 /*Directorio */

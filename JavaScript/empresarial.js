@@ -9,6 +9,23 @@ function getCardsFromLocalStorage() {
     return cards;
 }
 
+///////////////// editado
+function fillFormWithCardData(card) {
+    document.getElementById("contactName").value = card.name;
+    document.getElementById("address").value = card.address;
+    document.getElementById("email").value = card.email;
+    document.getElementById("phoneHome").value = card.phoneHome;
+    document.getElementById("phoneCell").value = card.phoneCell;
+    document.getElementById("relationship").value = card.relationship;
+    
+    document.getElementById("companyName").value = card.companyName;
+    document.getElementById("businessType").value = card.businessType;
+    document.getElementById("companyAddress").value = "";
+    document.getElementById("legalRepresentative").value = "";
+    document.getElementById("companyPhone").value = "";
+    document.getElementById("companyEmail").value = "";
+  }
+
 // Funcion para renderizar cartas
 function renderCards(cards) {
     const cardContainer = document.getElementById("cardContainer");
@@ -45,13 +62,19 @@ function renderCards(cards) {
         cardContainer.appendChild(cardElement);
     });
 }
-
+  function fillFormWithCardData(card) {
+    document.getElementById("contactName").value = card.name;
+    document.getElementById("address").value = card.address;
+    document.getElementById("email").value = card.email;
+    document.getElementById("phoneHome").value = card.phoneHome;
+    document.getElementById("phoneCell").value = card.phoneCell;
+    document.getElementById("relationship").value = card.relationship;
+  }
 
 window.onload = function() {
     const cards = getCardsFromLocalStorage();
     renderCards(cards);
 };
-
 
 document.getElementById("companyForm").addEventListener("submit", function(event) {
     event.preventDefault();
