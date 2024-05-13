@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const nombreContacto = params.get('nombre');
   
-    // document.getElementById('nombre').value = nombreContacto || '';
+  
+    document.getElementById('nombre').value = nombreContacto || '';
   
     const form = document.getElementById('cita-form');
     const citasList = document.getElementById('citas-list');
@@ -61,7 +62,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  window.onload = function(){
-    let nombre = sessionStorage.getItem('nombre');
-    document.getElementById("nombree").value = nombre;
-  } 
+  
