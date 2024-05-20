@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Css/Agenda.css">
     <title>&#128210 AgendaSync &#128210</title>
     <script src="JavaScript/Main.js"></script>
+    <script src="JavaScript/Agenda.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,37 +19,12 @@
     <div class="container">
         <h1>Agenda de Usuarios</h1>
         <hr style="border-color:black ;">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Hora de Inicio</th>
-                    <th>Hora de Finalización</th>
-                    <th>Lugar</th>
-                    <th>Asunto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí hay que agregar filas con información de tus usuarios -->
-                <tr>
-                    <td>John Doe</td>
-                    <td>21/04/2024</td>
-                    <td>23/05/2024</td> <!--Aqui solo son de ejemplo lo quitamos y ponemosla función donde su java almacena su info de cada usuario-->
-                    <td>30/06/2024</td>
-                    <td>Mexico</td>
-                    <td>Trabajo</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>21/04/2024</td>
-                    <td>13/05/2024</td>
-                    <td>15/04/2024</td>
-                    <td>Mexico</td>
-                    <td>Trabajo</td>
-                </tr>
-            </tbody>
-        </table>
+    </div>
+    <div id="citas-container">
+        <h2>Citas Registradas</h2>
+        <hr style="border-color:black ;">
+        <br>
+        <ul id="citas-list"></ul>
     </div>
 </body>
 </html>

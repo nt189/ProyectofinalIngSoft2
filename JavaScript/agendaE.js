@@ -4,20 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const nombreContacto = params.get('nombre');
   
   
-    document.getElementById('nombre').value = nombreContacto || '';
+    //document.getElementById('nombre').value = nombreContacto || '';
   
     const form = document.getElementById('cita-form');
     const citasList = document.getElementById('citas-list');
   
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-  
-      const nombre = document.getElementById('nombre').value;
+
+      const nombre = sessionStorage.getItem('nombre');
       const fecha = document.getElementById('fecha').value;
       const horaInicio = document.getElementById('hora-inicio').value;
       const horaFin = document.getElementById('hora-fin').value;
       const lugar = document.getElementById('lugar').value;
       const asunto = document.getElementById('asunto').value;
+      const id = localStorage.getItem('id');
   
       const cita = {
         nombre: nombre,
@@ -25,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
         horaInicio: horaInicio,
         horaFin: horaFin,
         lugar: lugar,
-        asunto: asunto
+        asunto: asunto,
+        id: id
       };
   
       guardarCita(cita);
@@ -43,16 +45,18 @@ document.addEventListener('DOMContentLoaded', function() {
       citasList.innerHTML = '';
       const citas = JSON.parse(localStorage.getItem('citas')) || [];
       citas.forEach(function(cita, index) {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <strong>${cita.nombre}</strong><br>
-          <span>Fecha: ${cita.fecha}</span><br>
-          <span>Hora de inicio: ${cita.horaInicio}</span><br>
-          <span>Hora de finalización: ${cita.horaFin}</span><br>
-          <span>Lugar: ${cita.lugar}</span><br>
-          <span>Asunto: ${cita.asunto}</span><br>
-        `;
-        citasList.appendChild(li);
+        if(cita.id === localStorage.getItem('id')){
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <strong>${cita.nombre}</strong><br>
+            <span>Fecha: ${cita.fecha}</span><br>
+            <span>Hora de inicio: ${cita.horaInicio}</span><br>
+            <span>Hora de finalización: ${cita.horaFin}</span><br>
+            <span>Lugar: ${cita.lugar}</span><br>
+            <span>Asunto: ${cita.asunto}</span><br>
+          `;
+          citasList.appendChild(li);
+        }
       });
     }
   
@@ -62,4 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  
+  window.onload = function(){
+    let nombre = sessionStorage.getItem('nombre');
+    document.getElementById("nombree").value = nombre;
+  }
